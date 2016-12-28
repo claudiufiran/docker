@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+
+  web:
+    image: joomla:3.6
+    ports:
+     - 80:80
+    environment:
+     - JOOMLA_DB_HOST=db
+     - JOOMLA_DB_PASSWORD=bla
+    volumes:
+     - /home/ec2-user/docker/joomla/volumes/joomla:/var/www/html
+    depends_on:
+     - db
+    restart: always
+
+  db:
+    image: mysql:5.6
+    ports:
+     - 3306
+    environment:
+     - MYSQL_ROOT_PASSWORD=bla
+    volumes:
+     - /home/ec2-user/docker/joomla/volumes/mysql:/var/lib/mysql
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+     - PMA_ARBITRARY=1
+     - PMA_HOST=db
+     - PMA_USER=root
+     - PMA_PASSWORD=bla
+    ports:
+      - 8080:80
+    volumes:
+     - /home/ec2-user/docker/joomla/volumes/phpmyadmin:/sessions
+    depends_on:
+     - db
+    restart: always
