@@ -2,15 +2,17 @@ version: '2'
 
 services:
 
-  wordpress:
+  web:
     image: wordpress
     ports:
-      - 80:80
+     - 1980:80
     environment:
-      WORDPRESS_DB_PASSWORD: example
+     - WORDPRESS_DB_HOST=db
+     - WORDPRESS_DB_PASSWORD=uordpresRetete
 
-  mysql:
+  db:
     image: mariadb
     environment:
-      MYSQL_ROOT_PASSWORD: example
-
+     - MYSQL_ROOT_PASSWORD=uordpresRetete
+    volumes:
+     - ./volumes/mariadb:/var/lib/mysql
