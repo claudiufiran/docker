@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+
+  virt-what:
+    build: .
+    image: virt-what
+    stdin_open: true
+    tty: true
