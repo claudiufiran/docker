@@ -11,7 +11,7 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 # TODO: fix login for a specific user, not root
-RUN echo 'root:screencast' | chpasswd
+#RUN echo 'root:screencast' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 COPY authorized_keys /root/.ssh/
