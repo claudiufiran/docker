@@ -1,1 +1,1 @@
-docker run --rm -it fibuntu
+docker run --rm -it fibuntu "$@"
