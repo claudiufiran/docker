@@ -1,0 +1,17 @@
+version: '2'
+
+
+
+services:
+
+  web:
+    image: nginx
+    networks:
+     - common_net
+
+     
+     
+networks:
+  
+  common_net:
+

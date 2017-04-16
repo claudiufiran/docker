@@ -1,0 +1,17 @@
+version: '2'
+
+
+
+services:
+
+  web:
+    image: nginx
+    networks:
+     - compose1_common_net
+
+     
+     
+networks:
+  
+  compose1_common_net:
+    external: true    
