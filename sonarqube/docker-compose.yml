@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+
+  sonarqube:
+    image: sonarqube:alpine
+    ports:
+     - 19000:9000
+     #- 9092:9092
+
